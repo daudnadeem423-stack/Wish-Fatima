@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Fatima!</title>
+    <!-- Google Fonts for Premium Look -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --primary: #52796f;
+            /* Deep Sage */
+            --accent: #84a98c;
+            /* Medium Sage */
+            --bg-start: #f4f3ee;
+            /* Warm White */
+            --bg-end: #cad2c5;
+            /* Muted Green-Grey */
+            --text-main: #2f3e46;
+            /* Dark Slate */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--text-main);
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: row;
+            /* Split Layout */
+            gap: 40px;
+            z-index: 10;
+            padding: 20px;
+            align-items: center;
+        }
+
+        /* Image on Left */
+        .photo-section {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            animation: slideInLeft 1.2s ease-out;
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: rotate(-3deg);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #f0f0f0;
+            display: block;
+        }
+
+        /* Card on Right */
+        .card {
+            flex: 1.2;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            animation: slideInRight 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .name-highlight {
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ff6b6b, #4834d4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #636e72;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(82, 121, 111, 0.3);
+            /* Sage shadow */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(82, 121, 111, 0.4);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Balloons */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatUp 15s linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(-120vh) rotate(360deg);
+            }
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 850px) {
+            .container {
+                flex-direction: column-reverse;
+                overflow-y: auto;
+                height: 100vh;
+                padding: 40px 20px;
+            }
+
+            .card {
+                text-align: center;
+                width: 100%;
+            }
+
+            .photo-section {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="balloon-container"
+        style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none;"></div>
+
+    <main class="container">
+        <!-- Picture Frame on Left -->
+        <div class="photo-section">
+            <div class="photo-frame">
+                <img src="BirthDay Girl Main Photo.jpeg" alt="Fatima - Birthday Girl">
+                <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--primary);">Happy Birthday
+                    Fatima! ✨</p>
+            </div>
+        </div>
+
+        <!-- Text Card on Right -->
+        <div class="card">
+            <h1>Happy Birthday 🎉</h1>
+            <span class="name-highlight">Fatima Abdul Hussain Hakim G Aka Pablo</span>
+
+            <div class="message">
+                "Another year has passed, and you continue to shine brighter than ever. May your journey be filled with
+                endless joy, extraordinary success, and the kind of love that warms your soul every single day. You are
+                a treasure, and today we celebrate the incredible person you are."
+            </div>
+
+            <a href="wishes.html" class="btn-primary">
+                Discover Your Wishes ✨
+            </a>
+        </div>
+    </main>
+
+    <!-- Hidden Audio Element -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/audio/2022/10/24/audio_3497d5a574.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // --- MUSIC LOGIC ---
+        const audio = document.getElementById('bgMusic');
+        let musicStarted = false;
+
+        function startMusic() {
+            if (musicStarted) return;
+            musicStarted = true;
+            audio.play().catch(e => console.log("Music waiting for interaction..."));
+            document.removeEventListener('click', startMusic);
+        }
+
+        document.addEventListener('click', startMusic);
+
+        // --- CELEBRATION EFFECTS ---
+        function fireConfetti() {
+            confetti({
+                particleCount: 200, // Boosted to 200 for MAX MAGIC
+                angle: 60,
+                spread: 80,
+                origin: { x: 0 },
+                colors: ['#52796f', '#84a98c', '#e9edc9', '#f4a261', '#e76f51']
+            });
+            confetti({
+                particleCount: 200, // Boosted to 200 for MAX MAGIC
+                angle: 120,
+                spread: 80,
+                origin: { x: 1 },
+                colors: ['#52796f', '#84a98c', '#e9edc9', '#f4a261', '#e76f51']
+            });
+        }
+
+        // --- BALLOON GENERATOR ---
+        function createBalloons() {
+            const container = document.getElementById('balloon-container');
+            const colors = ['#ff6b6b', '#ffd93d', '#4834d4', '#1dd1a1', '#ff9f43'];
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const b = document.createElement('div');
+                    b.className = 'balloon';
+                    b.style.left = Math.random() * 100 + 'vw';
+                    b.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    b.style.animationDuration = (Math.random() * 8 + 6) + 's';
+                    container.appendChild(b);
+                    setTimeout(() => b.remove(), 15000);
+                }, i * 300);
+            }
+        }
+
+        window.onload = () => {
+            createBalloons();
+            setInterval(createBalloons, 10000);
+            fireConfetti();
+            setInterval(fireConfetti, 2000); // Super frequent magic
+        };
+    </script>
+</body>
+
+</html>

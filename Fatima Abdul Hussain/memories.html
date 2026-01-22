@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories of Fatima ✨</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --bg-start: #ff9a9e;
+            --bg-end: #fad0c4;
+            --glass: rgba(255, 255, 255, 0.1);
+            --transition: all 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #2f3e46;
+            /* Dark Slate to match Sage theme */
+            /* Dark sleek background for photos */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            /* Indicates click-to-advance */
+        }
+
+        .gallery-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease;
+            transform: scale(1.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        /* Overlay for text readability */
+        .slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+            z-index: -1;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Ensures full image is visible */
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+            /* Adds depth since images might have space around them */
+        }
+
+        /* --- CAPTION STYLES --- */
+        .caption-box {
+            position: absolute;
+            bottom: 50px;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+            max-width: 80%;
+            animation: slideUp 1s ease-out 0.3s backwards;
+        }
+
+        .caption-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .caption-sub {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hint {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 600px) {
+            .caption-text {
+                font-size: 1.8rem;
+            }
+
+            .caption-box {
+                bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hint">Tap anywhere to see next photo 📸</div>
+
+    <div class="gallery-container" id="gallery">
+        <!-- Slide 1: Call -->
+        <div class="slide active">
+            <div class="img-wrapper">
+                <img src="Call.jpeg" alt="Call">
+            </div>
+            <div class="caption-box">
+                <div class="caption-text">"Endless Conversations 📞"</div>
+                <div class="caption-sub">No Outcome</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Nasha -->
+        <div class="slide">
+            <div class="img-wrapper">
+                <img src="Nasha Picture.jpeg" alt="Style">
+            </div>
+            <div class="caption-box">
+                <div class="caption-text">"Killer Style ✨"</div>
+                <div class="caption-sub">Nashaaaa</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Noodles -->
+        <div class="slide">
+            <div class="img-wrapper">
+                <img src="Noodles Picture.jpeg" alt="Foodie">
+            </div>
+            <div class="caption-box">
+                <div class="caption-text">"Foodie Vibes 🍜"</div>
+                <div class="caption-sub">Raess Forever</div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Solo Sain -->
+        <div class="slide">
+            <div class="img-wrapper">
+                <img src="Solo Sain remove.jpeg" alt="Solo">
+            </div>
+            <div class="caption-box">
+                <div class="caption-text">"Solo Queen 👑"</div>
+                <div class="caption-sub">Lal Pari</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="memoriesMusic" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/10/05/audio_6861d84814.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Click Sound (Optional) -->
+    <audio id="clickSound">
+        <source src="https://cdn.pixabay.com/audio/2022/03/24/audio_7845366432.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const clickSound = document.getElementById('clickSound');
+        const bgMusic = document.getElementById('memoriesMusic');
+        let musicStarted = false;
+
+        document.body.addEventListener('click', () => {
+            // Start background music on first click
+            if (!musicStarted) {
+                bgMusic.volume = 0.5;
+                bgMusic.play().catch(() => { });
+                musicStarted = true;
+            }
+
+            // Play subtle click sound
+            clickSound.volume = 0.2;
+            clickSound.play().catch(() => { });
+
+            // Advance Slide
+            if (currentSlide < slides.length - 1) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide++;
+                slides[currentSlide].classList.add('active');
+            } else {
+                // End of gallery -> Loop back to Start (Index)
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+
+</html>
